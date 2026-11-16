@@ -27,7 +27,7 @@ Este proyecto desarrolla una solución integral de mantenimiento predictivo e in
 </details>
 
 <details>
-<summary><b>🔵 Laburpen Exekutiboa (Euskara)</b></summary>
+<summary><b>Laburpena (Euskara)</b></summary>
 <br>
 <!-- Idatzi hemen zure laburpena euskaraz -->
 
