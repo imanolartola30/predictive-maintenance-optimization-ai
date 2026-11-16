@@ -406,7 +406,7 @@ With the RAG engine ready, the final step was to build an interactive web applic
 - **Tab 2 – Weekly MILP Schedule:** Displays the complete Monday-to-Thursday shift schedule table from Section 5 so the technician can check the full weekly plan without leaving the app.
 
 To access the live application online without installing anything, click the link below:
-- 🌐 **Live Web App (Streamlit Cloud):** [https://predictive-maintenance-optimization-ai-wh2xwhmeakc8ylihf66cin.streamlit.app/](https://predictive-maintenance-optimization-ai-wh2xwhmeakc8ylihf66cin.streamlit.app/)
+- **Live Web App (Streamlit Cloud):** [https://predictive-maintenance-optimization-ai-wh2xwhmeakc8ylihf66cin.streamlit.app/](https://predictive-maintenance-optimization-ai-wh2xwhmeakc8ylihf66cin.streamlit.app/)
 
 Or, if you prefer to run and open the interactive application locally in your browser, simply execute the following command from the `proyecto1` folder (which opens the app at `http://localhost:8501`):
 
