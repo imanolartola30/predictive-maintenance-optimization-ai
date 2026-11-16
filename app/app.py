@@ -56,17 +56,29 @@ with tab1:
     with right_col:
         st.subheader("💬 Shop-Floor Technical Copilot (Official Manual RAG)")
 
+        try:
+            if "GEMINI_API_KEY" in st.secrets and not os.environ.get("GEMINI_API_KEY"):
+                os.environ["GEMINI_API_KEY"] = str(st.secrets["GEMINI_API_KEY"]).strip()
+        except Exception:
+            pass
+        if "gemini_key" in st.session_state and st.session_state["gemini_key"]:
+            os.environ["GEMINI_API_KEY"] = st.session_state["gemini_key"]
+
         current_key = os.environ.get("GEMINI_API_KEY", "").strip()
         if len(current_key) > 15:
             st.success("✅ Connected to **Gemini AI** (`GEMINI_API_KEY` active)")
         else:
-            st.warning("⚠️ **Gemini API Key not connected yet** (your `.env` only had 1 character). Paste your key (`AIza...`) below and click **Save Key** to activate real AI chat:")
-            new_key = st.text_input("Paste your GEMINI_API_KEY here:", type="password", placeholder="AIzaSy...")
-            if st.button("Save Key to proyecto1/.env"):
+            st.info("ℹ️ **Offline RAG Mode active** (or paste a `GEMINI_API_KEY` below to enable live Gemini AI generation):")
+            new_key = st.text_input("Optional — Paste your GEMINI_API_KEY here:", type="password", placeholder="AIzaSy...")
+            if st.button("Activate Gemini API Key"):
                 if len(new_key.strip()) > 15:
-                    with open(ENV_PATH, "w", encoding="utf-8") as f:
-                        f.write(f"GEMINI_API_KEY={new_key.strip()}\n")
+                    st.session_state["gemini_key"] = new_key.strip()
                     os.environ["GEMINI_API_KEY"] = new_key.strip()
+                    try:
+                        with open(ENV_PATH, "w", encoding="utf-8") as f:
+                            f.write(f"GEMINI_API_KEY={new_key.strip()}\n")
+                    except Exception:
+                        pass
                     st.rerun()
                 else:
                     st.error("Please paste a valid Gemini API key (starts with AIza...).")

@@ -1,4 +1,40 @@
 # Predictive Maintenance, Optimization and AI Copilot
+
+> 🚀 **Live Interactive AI Copilot Web App:** [Open in Streamlit Cloud](https://predictive-maintenance-optimization-ai-wh2xwhmeakc8ylihf66cin.streamlit.app/)
+
+<details open>
+<summary><b>🇬🇧 Executive Summary (English)</b></summary>
+<br>
+This project develops a complete, end-to-end predictive maintenance and operations research solution for an industrial plant of 100 machines:
+<ul>
+  <li><b>SQL & Feature Engineering:</b> Built a relational database (<code>SQLite</code>) and engineered 33 rolling time-series features (3h and 24h sensor windows, error counts, and days since last component replacement) over 876,000 hourly observations.</li>
+  <li><b>Predictive Machine Learning (LightGBM):</b> Trained a balanced multiclass classifier capable of predicting which specific component (<code>comp1</code>–<code>comp4</code>) will fail in the next 24 hours with <b>99.7% accuracy</b> and an <b>F1-score between 0.91 and 0.99</b>.</li>
+  <li><b>MILP Shift Optimization (Pyomo & HiGHS):</b> Formulated a Mixed-Integer Linear Programming model to schedule 16 machine alerts across 8-hour technician shifts during the busiest week of the year, preventing <b>14 breakdowns</b>, achieving <b>0 unplanned stops</b>, and generating <b>58,100 € in net weekly savings</b>.</li>
+  <li><b>Power BI & Trilingual AI Copilot (RAG):</b> Designed an interactive <b>Power BI</b> dashboard for plant managers and a trilingual (<b>EN / ES / EU</b>) <b>Streamlit</b> web app powered by <b>RAG + Google Gemini</b> that answers technicians' shop-floor questions citing the exact page of the official maintenance manual.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>🇪🇸 Resumen Ejecutivo (Castellano)</b></summary>
+<br>
+Este proyecto desarrolla una solución integral de mantenimiento predictivo e investigación operativa para una planta industrial de 100 máquinas:
+<ul>
+  <li><b>SQL e Ingeniería de Variables:</b> Creación de una base de datos relacional (<code>SQLite</code>) y construcción de 33 variables temporales (ventanas móviles de 3h y 24h de los sensores, conteo de errores y días desde el último cambio de cada componente) sobre 876.000 registros horarios.</li>
+  <li><b>Machine Learning Predictivo (LightGBM):</b> Entrenamiento de un modelo multiclase balanceado capaz de predecir qué componente exacto (<code>comp1</code>–<code>comp4</code>) fallará en las próximas 24 horas con un <b>99,7% de precisión global</b> y un <b>F1-score entre 0,91 y 0,99</b>.</li>
+  <li><b>Optimización de Turnos MILP (Pyomo y HiGHS):</b> Formulación de un modelo de Programación Lineal Entera Mixta para planificar 16 máquinas en alerta en turnos de 8 horas durante la semana más crítica del año, logrando <b>evitar 14 averías reales</b>, conseguir <b>0 paradas imprevistas</b> y generar un <b>ahorro neto semanal de 58.100 €</b>.</li>
+  <li><b>Power BI y Copiloto de IA Trilingüe (RAG):</b> Diseño de un cuadro de mando interactivo en <b>Power BI</b> y desarrollo de una aplicación web en <b>Streamlit</b> con un asistente de IA trilingüe (<b>Inglés / Castellano / Euskera</b>) basado en <b>RAG + Google Gemini</b> que responde dudas técnicas citando la página exacta del manual oficial.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>🔵 Laburpen Exekutiboa (Euskara)</b></summary>
+<br>
+<!-- Idatzi hemen zure laburpena euskaraz -->
+
+</details>
+
+---
+
 ## 1. Aims and goals
 In this project, we aim to develop a predictive maintenance system for industrial machines using historical data on failures, errors and sensor readings.
 
@@ -369,7 +405,10 @@ With the RAG engine ready, the final step was to build an interactive web applic
 - **Tab 1: Maintenance Copilot.** Gives the technician a complete interactive workspace for the selected machine. On the left side, there is a dropdown menu with all 16 machines scheduled for repair during the week; once a machine is selected, it displays a summary card with its model, assigned shift, component to replace, failure probability, estimated repair hours, and costs, as well as an expandable box to inspect the raw pages retrieved from the manual. On the right side, we have the language selector (English, Español, or Euskara), a quick API key configuration box, and the interactive chat where the technician can type any question and get an immediate answer from the AI Copilot.
 - **Tab 2 – Weekly MILP Schedule:** Displays the complete Monday-to-Thursday shift schedule table from Section 5 so the technician can check the full weekly plan without leaving the app.
 
-To run and open the interactive application locally in your browser, simply execute the following command from the `proyecto1` folder (which opens the app at `http://localhost:8501`):
+To access the live application online without installing anything, click the link below:
+- 🌐 **Live Web App (Streamlit Cloud):** [https://predictive-maintenance-optimization-ai-wh2xwhmeakc8ylihf66cin.streamlit.app/](https://predictive-maintenance-optimization-ai-wh2xwhmeakc8ylihf66cin.streamlit.app/)
+
+Or, if you prefer to run and open the interactive application locally in your browser, simply execute the following command from the `proyecto1` folder (which opens the app at `http://localhost:8501`):
 
 ```bash
 streamlit run app/app.py
