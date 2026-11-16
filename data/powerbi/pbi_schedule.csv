@@ -1,0 +1,17 @@
+shift_idx,shift,machineID,model,pred_comp,pred_prob,real_failure,outcome,repair_hours,prev_cost,real_reactive_cost,real_net_savings
+0,Mon_morning,24,model1,comp3,0.9999976237060644,comp3,Prevented Failure,5.0,800,5800.0,5000.0
+0,Mon_morning,29,model4,comp2,0.9999987863737919,comp2,Prevented Failure,3.0,500,4400.0,3900.0
+1,Mon_afternoon,17,model1,comp2,0.9999987104058127,comp2,Prevented Failure,3.0,500,4400.0,3900.0
+1,Mon_afternoon,98,model2,comp3,0.9999985394305199,comp3,Prevented Failure,5.0,800,5800.0,5000.0
+2,Tue_morning,73,model2,comp1,0.9999915993406997,comp1,Prevented Failure,4.0,700,5200.0,4500.0
+2,Tue_morning,77,model4,comp1,0.9999918384433579,none,False Alarm,4.0,700,0.0,-700.0
+3,Tue_afternoon,33,model3,comp1,0.999997190223134,comp1,Prevented Failure,4.0,700,5200.0,4500.0
+3,Tue_afternoon,28,model4,comp1,0.9999327773533334,none,False Alarm,4.0,700,0.0,-700.0
+4,Wed_morning,56,model1,comp2,0.9999986998194346,comp2,Prevented Failure,3.0,500,4400.0,3900.0
+4,Wed_morning,83,model4,comp4,0.9999968538536705,comp4,Prevented Failure,4.5,600,4800.0,4200.0
+5,Wed_afternoon,49,model1,comp2,0.9999983558917817,comp2,Prevented Failure,3.0,500,4400.0,3900.0
+5,Wed_afternoon,51,model4,comp4,0.9999963236940898,comp4,Prevented Failure,4.5,600,4800.0,4200.0
+6,Thu_morning,16,model1,comp2,0.9999978111419399,comp2,Prevented Failure,3.0,500,4400.0,3900.0
+6,Thu_morning,68,model3,comp1,0.9999970967025084,comp1,Prevented Failure,4.0,700,5200.0,4500.0
+7,Thu_afternoon,19,model3,comp4,0.9999960854209011,comp4,Prevented Failure,4.5,600,4800.0,4200.0
+7,Thu_afternoon,61,model4,comp2,0.9999975269248437,comp2,Prevented Failure,3.0,500,4400.0,3900.0
