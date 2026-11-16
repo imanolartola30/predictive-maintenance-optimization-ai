@@ -559,3 +559,15 @@ class MaintenanceRAGCopilot:
             "machine_context": m_ctx,
             "engine": "Intent-Aware RAG Responder"
         }
+
+
+if __name__ == "__main__":
+    try:
+        from streamlit.runtime.scriptrunner import get_script_run_ctx
+        if get_script_run_ctx() is not None:
+            import runpy
+            _app_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "app", "app.py")
+            runpy.run_path(_app_path, run_name="__main__")
+    except Exception:
+        pass
+
