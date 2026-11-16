@@ -29,8 +29,13 @@ Este proyecto desarrolla una solución integral de mantenimiento predictivo e in
 <details>
 <summary><b>🔵 Laburpen Exekutiboa (Euskara)</b></summary>
 <br>
-<!-- Idatzi hemen zure laburpena euskaraz -->
-
+Proiektu honek mantentze-lan prediktiborako eta ikerketa operatiborako irtenbide bat garatzen du 100 makinako instalazio industrial baterako:
+<ul>
+  <li><b>SQL eta Aldagaien Ingeniaritza:</b> Datu-base erlazional (<code>SQLite</code>) baten sorkuntza eta 33 aldagai tenporalen eraikitzea (3h eta 24h-ko leiho mugikorrak, errore-zenbaketa eta konponente bakoitzaren azken aldaketatik igarotako egun kopurua) 876.000 orduko erregistroan.</li>
+  <li><b>Machine Learning Prediktiboa (LightGBM):</b> Hurrengo 24 orduetan zein konponente zehatzek (<code>comp1</code>–<code>comp4</code>) huts egingo duen aurreikusteko gai den modelo multiklase orekatu baten entrenamendua, <b>% 99,7ko zehaztasunarekin</b> eta <b>0,91 eta 0,99 arteko F1-score</b> batekin.</li>
+  <li><b>MILP Txandak Optimizatzea (Pyomo eta HiGHS):</b> Programazio Lineal Oso Mistoko modelo bat egitea, urteko asterik kritikoenean 8 orduko txandetan alerta egoeran dauden 16 makina planifikatzeko, <b>benetako 14 matxura saihestuz</b>, ustekabeko <b>0 geldialdi</b> izanez eta <b>asteko 58.100 €-ko aurrezki garbia</b> lortuz.</li>
+  <li><b>Power BI eta AA Copilot Eleanitza (RAG):</b> <b>Power BI</b>-ko aginte-koadro interaktibo baten diseinua eta <b>Streamlit</b>-eko web aplikazio baten garapena AA laguntzaile eleanitz batekin (<b>Ingelesa, Gaztelania eta Euskara</b>), <b>RAG + Google Gemini</b>-n oinarrituta, zalantza teknikoak erantzuten dituena eskuliburu ofizialaren orri zehatza aipatuz.</li>
+</ul>
 </details>
 
 ---
