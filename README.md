@@ -1,9 +1,9 @@
 # Predictive Maintenance, Optimization and AI Copilot
 
-> 🚀 **Live Interactive AI Copilot Web App:** [Open in Streamlit Cloud](https://predictive-maintenance-optimization-ai-wh2xwhmeakc8ylihf66cin.streamlit.app/)
+> **Live Interactive AI Copilot Web App:** [Open in Streamlit Cloud](https://predictive-maintenance-optimization-ai-wh2xwhmeakc8ylihf66cin.streamlit.app/)
 
 <details open>
-<summary><b>🇬🇧 Executive Summary (English)</b></summary>
+<summary><b>Executive Summary (English)</b></summary>
 <br>
 This project develops a complete, end-to-end predictive maintenance and operations research solution for an industrial plant of 100 machines:
 <ul>
@@ -15,7 +15,7 @@ This project develops a complete, end-to-end predictive maintenance and operatio
 </details>
 
 <details>
-<summary><b>🇪🇸 Resumen Ejecutivo (Castellano)</b></summary>
+<summary><b>Resumen Ejecutivo (Castellano)</b></summary>
 <br>
 Este proyecto desarrolla una solución integral de mantenimiento predictivo e investigación operativa para una planta industrial de 100 máquinas:
 <ul>
