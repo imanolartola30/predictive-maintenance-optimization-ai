@@ -207,7 +207,7 @@ What this tells us is very clear: we should prioritize the models that have the 
 
 ### 5.3. Workshop Parameters
 To build an optimization model, we need realistic workshop parameters: repair costs, breakdown costs, repair times, and technician shifts. Since our dataset does not include financial data, we defined realistic estimates for each component:
-- **Preventive cost($\text{prev_cost}_i$):** The cost of repairing a machine before it breaks, when the model warns us it will fail soon. This ranges between 500 € and 800 €, covering both the spare part and the technician's labor.
+- **Preventive cost($\text{prev\_cost}_i$):** The cost of repairing a machine before it breaks, when the model warns us it will fail soon. This ranges between 500 € and 800 €, covering both the spare part and the technician's labor.
 - **Failure cost ($\text{fail\_cost}_i$):** The cost of fixing the machine after it has already broken down in the middle of production, stopping the line. This is much higher and ranges between 4,400 € and 5,800 €.
 - **Repair time ($\text{repair\_hours}_i$):** The time a technician needs to replace each component, which is between 3 and 5 hours.
 
