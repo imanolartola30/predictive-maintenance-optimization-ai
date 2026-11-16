@@ -207,9 +207,9 @@ What this tells us is very clear: we should prioritize the models that have the 
 
 ### 5.3. Workshop Parameters
 To build an optimization model, we need realistic workshop parameters: repair costs, breakdown costs, repair times, and technician shifts. Since our dataset does not include financial data, we defined realistic estimates for each component:
-- **Preventive cost($\text{prev\_cost}_i$):** The cost of repairing a machine before it breaks, when the model warns us it will fail soon. This ranges between 500 € and 800 €, covering both the spare part and the technician's labor.
-- **Failure cost ($\text{fail\_cost}_i$):** The cost of fixing the machine after it has already broken down in the middle of production, stopping the line. This is much higher and ranges between 4,400 € and 5,800 €.
-- **Repair time ($\text{repair\_hours}_i$):** The time a technician needs to replace each component, which is between 3 and 5 hours.
+- **Preventive cost ($\text{prevCost}_i$):** The cost of repairing a machine before it breaks, when the model warns us it will fail soon. This ranges between 500 € and 800 €, covering both the spare part and the technician's labor.
+- **Failure cost ($\text{failCost}_i$):** The cost of fixing the machine after it has already broken down in the middle of production, stopping the line. This is much higher and ranges between 4,400 € and 5,800 €.
+- **Repair time ($\text{repairHours}_i$):** The time a technician needs to replace each component, which is between 3 and 5 hours.
 
 In addition, we organized the technicians' work into 8-hour shifts, with one morning shift and one afternoon shift every weekday from Monday to Friday (10 shifts in total).
 
@@ -217,18 +217,27 @@ In addition, we organized the technicians' work into 8-hour shifts, with one mor
 The complete mathematical formulation of our optimization model is the following:
 
 **Objective Function:**
-$$\min \sum_{i \in I} \sum_{t \in T} x_{i,t} \cdot \left( \text{prev\_cost}_i + 0.06 \cdot t \cdot p_i \cdot \text{fail\_cost}_i \cdot (1 + \text{fleet\_risk}_i) \right)$$
+
+$$
+\min \sum_{i \in I} \sum_{t \in T} x_{i,t} \cdot \left( \text{prevCost}_i + 0.06 \cdot t \cdot p_i \cdot \text{failCost}_i \cdot (1 + \text{fleetRisk}_i) \right)
+$$
 
 **Subject to (Constraints):**
-$$\begin{aligned}
-\sum_{t \in T} x_{i,t} &= 1 && \forall i \in I \quad \text{(Constraint 1)} \\[6pt]
-\sum_{i \in I} \text{repair\_hours}_i \cdot x_{i,t} &\le 8 && \forall t \in T \quad \text{(Constraint 2)} \\[6pt]
-\sum_{i \in I} x_{i,t} &\le 2 && \forall t \in T \quad \text{(Constraint 3)} \\[6pt]
+
+$$
+\begin{aligned}
+\sum_{t \in T} x_{i,t} &= 1 && \forall i \in I \quad \text{(Constraint 1)} \\
+\sum_{i \in I} \text{repairHours}_i \cdot x_{i,t} &\le 8 && \forall t \in T \quad \text{(Constraint 2)} \\
+\sum_{i \in I} x_{i,t} &\le 2 && \forall t \in T \quad \text{(Constraint 3)} \\
 \sum_{i \in I_m} x_{i,t} &\le 1 && \forall t \in T, \; \forall m \in M \quad \text{(Constraint 4)}
-\end{aligned}$$
+\end{aligned}
+$$
 
 **Decision Variable:**
-$$x_{i,t} \in \{0, 1\} \quad \forall i \in I, \; \forall t \in T$$
+
+$$
+x_{i,t} \in \{0, 1\} \quad \forall i \in I, \; \forall t \in T
+$$
 
 Where each element of the model means:
 - **The sets:**
@@ -236,7 +245,7 @@ Where each element of the model means:
   - $T = \{0, 1, \dots, 9\}$ is the set of the 10 eight-hour technician shifts from Monday morning ($t = 0$) to Friday afternoon ($t = 9$).
   - $M = \{\text{model1}, \text{model2}, \text{model3}, \text{model4}\}$ is the set of machine models, where $I_m \subseteq I$ represents the machines in alert that belong to model $m$.
 - **Binary decision variable ($x_{i,t}$):** Takes the value $1$ if machine $i$ is assigned to be repaired in shift $t$, and $0$ otherwise.
-- **Objective function:** Here we look for the best balance between preventive costs and the risk of waiting too long to fix a machine. Every time we delay a repair to the next shift $t$, we assume the risk of an unexpected breakdown increases by 6% ($0.06 \cdot t$). Since this delay penalty is multiplied by the machine's failure probability ($p_i$), its breakdown cost ($\text{fail\_cost}_i$), and its fleet risk ($1 + \text{fleet\_risk}_i$), the solver automatically places the most urgent machines and the scarcest models in the earliest shifts of the week.
+- **Objective function:** Here we look for the best balance between preventive costs and the risk of waiting too long to fix a machine. Every time we delay a repair to the next shift $t$, we assume the risk of an unexpected breakdown increases by 6% ($0.06 \cdot t$). Since this delay penalty is multiplied by the machine's failure probability ($p_i$), its breakdown cost ($\text{failCost}_i$), and its fleet risk ($1 + \text{fleetRisk}_i$), the solver automatically places the most urgent machines and the scarcest models in the earliest shifts of the week.
 - **Constraints:**
   - **Constraint 1:** Every machine in alert must be repaired in exactly one shift during the week; no machine can be left unfixed.
   - **Constraint 2:** The sum of repair hours assigned to any shift cannot exceed the 8 hours available in that shift. For example, we cannot assign two machines that each need 5 hours of work to the same shift.
