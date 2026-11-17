@@ -224,9 +224,9 @@ In Section 3, we spent a lot of effort creating new variables from the raw table
 
 ![Feature Importance](img/important_variables.png)
 
-Looking at Figure 3, we can see that the **top 14 most important variables**, those most frequently used by the model to split the trees and make predictions, are all variables that we created during feature engineering. The first raw sensor measurement (`vibration`) only appears in 15th place.
+Looking at Figure 3, we can see that the top 14 most important variables, those most frequently used by the model to split the trees and make predictions, are all variables that we created during feature engineering. The first raw sensor measurement (`vibration`) only appears in 15th place.
 
-More specifically, the top 8 variables are the **days since the last replacement of each component** (`comp1`-`comp4`) and the **24-hour rolling means of the four sensors**. As we saw earlier in our SQL analysis, 24-hour sensor averages clearly reflect which component is under stress. The fact that 24-hour features rank much higher than 3-hour features also shows that most breakdowns are not sudden 3-hour accidents, but progressive wear that builds up over a full day.
+More specifically, the top 8 variables are the days since the last replacement of each component and the 24-hour rolling means of the four sensors. As we saw earlier in our SQL analysis, 24-hour sensor averages clearly reflect which component is under stress. The fact that 24-hour features rank much higher than 3-hour features also shows that most breakdowns are not sudden 3-hour accidents, but progressive wear that builds up over a full day.
 
 Overall, these results confirm our initial hypothesis: a machine failure is rarely something you can spot from a single sensor reading at an isolated moment. Instead, it is a gradual degradation process, and combining 24-hour sensor trends with component maintenance history allows the model to anticipate breakdowns reliably.
 
